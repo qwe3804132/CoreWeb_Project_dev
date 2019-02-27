@@ -7,13 +7,9 @@ using System.Web.Mvc;
 
 namespace CoreWebUI.Areas.Admin.Controllers
 {
-    public class ListCategoryController : Controller
+    public class ListCategoryController : BaseAdminController
     {
-        private AdminBs objBs;
-        public ListCategoryController()
-        {
-            objBs = new AdminBs();
-        }
+        
         // GET: Admin/ListCateory
         public ActionResult Index(string SortOrder, string SortBy, string Page)
         {

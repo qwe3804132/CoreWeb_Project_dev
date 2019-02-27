@@ -7,13 +7,8 @@ using System.Web.Mvc;
 
 namespace CoreWebUI.Areas.Admin.Controllers
 {
-    public class ListUserController : Controller
+    public class ListUserController : BaseAdminController
     {
-        private AdminBs objBs;
-        public ListUserController()
-        {
-            objBs = new AdminBs();
-        }
 
 
 

@@ -7,13 +7,9 @@ using System.Web.Mvc;
 
 namespace CoreWebUI.Areas.Common.Controllers
 {
-    public class BrowseURLController : Controller
+    public class BrowseURLController : BaseCommonController
     {
-        private CommonBs objBs;
-        public BrowseURLController()
-        {
-            objBs = new CommonBs();
-        }
+        
         // GET: Common/BrowseURL
         public ActionResult Index(string sortOrder,string sortBy,string Page)
         {

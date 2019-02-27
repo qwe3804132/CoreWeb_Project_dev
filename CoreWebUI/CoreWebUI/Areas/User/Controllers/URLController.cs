@@ -8,17 +8,9 @@ using System.Web.Mvc;
 
 namespace CoreWebUI.Areas.User.Controllers
 {
-    public class URLController : Controller
+    public class URLController : BaseUserController
     {
-        private UserAreaBs objBs;
-        //private UserAreaBs objCatBs;
-        //private UserAreaBs objUserBs;
-        public URLController()
-        {
-            objBs = new UserAreaBs();
-            //objCatBs = new UserAreaBs();
-           // objUserBs = new UserAreaBs();
-        }
+        
         // GET: User/URL
         public ActionResult Index()
         {

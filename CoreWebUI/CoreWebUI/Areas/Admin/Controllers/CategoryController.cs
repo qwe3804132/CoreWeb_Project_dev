@@ -10,14 +10,10 @@ namespace CoreWebUI.Areas.Admin.Controllers
 {
 
 
-    public class CategoryController : Controller
+    public class CategoryController : BaseAdminController
     {
 
-        private AdminBs objBs;
-        public CategoryController()
-        {
-            objBs = new AdminBs();
-        }
+       
         // GET: Admin/Category
         public ActionResult Index()
         {

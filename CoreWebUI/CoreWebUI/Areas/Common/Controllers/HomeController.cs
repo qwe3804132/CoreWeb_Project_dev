@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace CoreWebUI.Areas.Common.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseCommonController
     {
         // GET: Common/Home
         public ActionResult Index()
