@@ -15,6 +15,8 @@ namespace BLL
         public CategoryBs()
         {
             objDb = new CategoryDb();
+            //s
+            
         }
 
         public IEnumerable<tbl_Category> GetAll()
