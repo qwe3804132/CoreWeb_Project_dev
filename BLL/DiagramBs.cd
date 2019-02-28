@@ -43,7 +43,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="BLL.UserAreaBs" Collapsed="true">
-    <Position X="8" Y="2" Width="1.5" />
+    <Position X="3.5" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>UserAreaBs.cs</FileName>
