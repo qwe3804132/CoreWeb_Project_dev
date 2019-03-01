@@ -23,7 +23,7 @@ namespace BOL
         }
     }
 
-    public class tbl_UrlValidation
+    public partial class tbl_UrlValidation
     {
         [Required]
         public string UrlTitle { get; set; }

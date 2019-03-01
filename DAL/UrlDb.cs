@@ -42,6 +42,9 @@ namespace DAL
         public void Update(tbl_Url url)
         {
             db.Entry(url).State = EntityState.Modified;
+            db.Configuration.ValidateOnSaveEnabled = false;
+            Save();
+            db.Configuration.ValidateOnSaveEnabled = true;
         }
 
         public void Save()

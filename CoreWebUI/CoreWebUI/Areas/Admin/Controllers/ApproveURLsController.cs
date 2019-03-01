@@ -32,6 +32,7 @@ namespace CoreWebUI.Areas.Admin.Controllers
                 var myUrl = objBs.urlBs.GetByID(id);
                 myUrl.IsApproved = "A";
                 objBs.urlBs.Update(myUrl);
+               
                 TempData["Msg"] = "Approved Successfully";
                 return RedirectToAction("Index");
             }
@@ -49,6 +50,7 @@ namespace CoreWebUI.Areas.Admin.Controllers
                 var myUrl = objBs.urlBs.GetByID(id);
                 myUrl.IsApproved = "R";
                 objBs.urlBs.Update(myUrl);
+              
                 TempData["Msg"] = "Approved Successfully";
                 return RedirectToAction("Index");
             }
