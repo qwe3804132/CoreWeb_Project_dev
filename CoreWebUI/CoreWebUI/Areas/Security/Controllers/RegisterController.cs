@@ -7,6 +7,8 @@ using System.Web.Mvc;
 
 namespace CoreWebUI.Areas.Security.Controllers
 {
+    [AllowAnonymous]
+
     public class RegisterController : BaseSecurityController
     {
         // GET: Security/Register

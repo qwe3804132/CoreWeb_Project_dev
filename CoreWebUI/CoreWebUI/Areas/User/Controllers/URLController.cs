@@ -10,7 +10,8 @@ namespace CoreWebUI.Areas.User.Controllers
 {
     public class URLController : BaseUserController
     {
-        
+        [Authorize(Roles = "A,U")]
+
         // GET: User/URL
         public ActionResult Index()
         {
@@ -23,6 +24,8 @@ namespace CoreWebUI.Areas.User.Controllers
         {
             try
             {
+                myUrl.IsApproved = "P";
+                myUrl.UserId = objBs.userBs.GetAll().Where(x => x.UserEmail == User.Identity.Name).FirstOrDefault().UserId;
                 if (ModelState.IsValid)
                 {
                     objBs.urlBs.Insert(myUrl);

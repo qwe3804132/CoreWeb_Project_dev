@@ -8,6 +8,8 @@ namespace CoreWebUI.Areas.Admin.Controllers
 {
     public class ApproveURLsController : BaseAdminController
     {
+        [Authorize(Roles = "A")]
+
         // GET: Admin/ApproveURLs
         public ActionResult Index(string Status)
         {

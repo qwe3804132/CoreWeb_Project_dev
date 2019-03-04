@@ -7,6 +7,8 @@ using System.Web.Mvc;
 
 namespace CoreWebUI.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "A")]
+
     public class ListUserController : BaseAdminController
     {
 

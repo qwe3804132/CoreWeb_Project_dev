@@ -6,6 +6,8 @@ using System.Web.Mvc;
 
 namespace CoreWebUI.Areas.Common.Controllers
 {
+    [AllowAnonymous]
+
     public class HomeController : BaseCommonController
     {
         // GET: Common/Home
