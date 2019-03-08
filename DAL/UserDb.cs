@@ -41,7 +41,11 @@ namespace DAL
 
         public void Update(tbl_User user)
         {
+            //db.Entry(user).State = EntityState.Modified;
             db.Entry(user).State = EntityState.Modified;
+            db.Configuration.ValidateOnSaveEnabled = false;
+            Save();
+            db.Configuration.ValidateOnSaveEnabled = true;
         }
 
         public void Save()

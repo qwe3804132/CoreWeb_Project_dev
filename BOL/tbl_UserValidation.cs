@@ -30,6 +30,7 @@ namespace BOL
         [Required]
         [Compare("Password")]
         public string ConfirmPassword { get; set; }
+        public string VerifyCode { get; set; }
 
     }
 
@@ -37,5 +38,7 @@ namespace BOL
     public partial class tbl_User
     {
         public string ConfirmPassword { get; set; }
+        public string VerifyCode { get; set; }
+
     }
 }
