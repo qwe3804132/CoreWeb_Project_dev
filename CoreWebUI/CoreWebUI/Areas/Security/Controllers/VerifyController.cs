@@ -31,7 +31,8 @@ namespace CoreWebUI.Areas.Security.Controllers
             if (user.VerifyCode != Convert.ToString(Session["verifyCode"]))
             {
                 TempData["Msg"] = "Invalid Verification Code";
-                return RedirectToAction("Index", "Home");
+
+                return RedirectToAction("Index", "Verify");
             }
             else
             {
@@ -42,10 +43,11 @@ namespace CoreWebUI.Areas.Security.Controllers
 
                         objBs.userBs.Insert(user1);
 
-                        TempData["Msg"] = "Created Successfully";
-                        return RedirectToAction("Index");
-                    
-                    
+                        TempData["Msg"] = "Verify Successfully";
+
+                   return RedirectToAction("Index");
+
+
                 }
                 catch (Exception e1)
                 {
