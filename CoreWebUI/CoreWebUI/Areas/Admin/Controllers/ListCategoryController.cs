@@ -40,6 +40,10 @@ namespace CoreWebUI.Areas.Admin.Controllers
             categories = categories.Skip((page - 1) * 10).Take(10);//logic for showing pagely
             return View(categories);
         }
+
+
+
+
         public ActionResult Delete(int id)
         {
             try

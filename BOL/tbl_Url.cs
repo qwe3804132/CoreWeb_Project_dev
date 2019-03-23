@@ -21,7 +21,9 @@ namespace BOL
         public Nullable<int> CategoryId { get; set; }
         public Nullable<int> UserId { get; set; }
         public string IsApproved { get; set; }
-    
+        public string Payment { get; set; }
+
+
         public virtual tbl_Category tbl_Category { get; set; }
         public virtual tbl_User tbl_User { get; set; }
     }
