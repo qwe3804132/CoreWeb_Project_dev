@@ -156,6 +156,9 @@
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="Areas\Security\Views\Verify\Index.cshtml" />
     <Content Include="Areas\User\Views\Mylink\Index.cshtml" />
+    <Content Include="Areas\User\Views\PaymentSuccess\Index.cshtml" />
+    <Content Include="Areas\User\Views\PaymentFailed\Index.cshtml" />
+    <Content Include="Areas\User\Views\PaymentSelection\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -200,6 +203,9 @@
     <Compile Include="Areas\Security\SecurityAreaRegistration.cs" />
     <Compile Include="Areas\User\Controllers\BaseUserController.cs" />
     <Compile Include="Areas\User\Controllers\MylinkController.cs" />
+    <Compile Include="Areas\User\Controllers\PaymentFailedController.cs" />
+    <Compile Include="Areas\User\Controllers\PaymentSelectionController.cs" />
+    <Compile Include="Areas\User\Controllers\PaymentSuccessController.cs" />
     <Compile Include="Areas\User\Controllers\URLController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">

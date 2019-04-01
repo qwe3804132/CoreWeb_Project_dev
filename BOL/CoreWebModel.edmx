@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CoreWebDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CoreWebDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tbl_Category">
           <Key>
             <PropertyRef Name="CategoryId" />
@@ -24,6 +24,8 @@
           <Property Name="CategoryId" Type="int" />
           <Property Name="UserId" Type="int" />
           <Property Name="IsApproved" Type="varchar" MaxLength="1" />
+          <Property Name="Payment" Type="varchar" MaxLength="50" />
+          <Property Name="ClickCount" Type="int" />
         </EntityType>
         <EntityType Name="tbl_User">
           <Key>
@@ -71,8 +73,7 @@
             <End Role="tbl_Url" EntitySet="tbl_Url" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CoreWebDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -98,6 +99,8 @@
           <Property Name="IsApproved" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tbl_Category" Relationship="Self.FK_tbl_Url_tbl_Category" FromRole="tbl_Url" ToRole="tbl_Category" />
           <NavigationProperty Name="tbl_User" Relationship="Self.FK_tbl_Url_tbl_User" FromRole="tbl_Url" ToRole="tbl_User" />
+          <Property Name="Payment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClickCount" Type="Int32" />
         </EntityType>
         <EntityType Name="tbl_User">
           <Key>
@@ -164,6 +167,8 @@
           <EntitySetMapping Name="tbl_Url">
             <EntityTypeMapping TypeName="CoreWebDbModel.tbl_Url">
               <MappingFragment StoreEntitySet="tbl_Url">
+                <ScalarProperty Name="ClickCount" ColumnName="ClickCount" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
                 <ScalarProperty Name="UrlId" ColumnName="UrlId" />
                 <ScalarProperty Name="UrlTitle" ColumnName="UrlTitle" />
                 <ScalarProperty Name="Url" ColumnName="Url" />

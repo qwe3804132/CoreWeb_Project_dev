@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="60959a8cb0aa4da8982d2a26aeabbf27" Name="Diagram1">
         <EntityTypeShape EntityType="CoreWebDbModel.tbl_Category" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CoreWebDbModel.tbl_Url" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoreWebDbModel.tbl_Url" Width="1.5" PointX="3.625" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CoreWebDbModel.tbl_User" Width="1.5" PointX="1" PointY="4" IsExpanded="true" />
         <AssociationConnector Association="CoreWebDbModel.FK_tbl_Url_tbl_Category" ManuallyRouted="false" />
         <AssociationConnector Association="CoreWebDbModel.FK_tbl_Url_tbl_User" ManuallyRouted="false" />

@@ -1,4 +1,5 @@
 ﻿using BLL;
+using BOL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,5 +38,24 @@ namespace CoreWebUI.Areas.Common.Controllers
             urls = urls.Skip((page - 1) * 10).Take(10);//logic for showing pagely
             return View(urls);
         }
+
+        public ActionResult updateClickCount(int urlId)
+        {
+            //try
+           // {
+                tbl_Url myUrl = objBs.urlBs.GetByID(urlId); 
+            //TempData["Msg"] = myUrl;
+                 myUrl.ClickCount = myUrl.ClickCount+1;
+                objBs.urlBs.Update(myUrl);
+            string retailerWebsite = myUrl.Url;
+                return Redirect(retailerWebsite);
+           // }
+           // catch (Exception e1)
+           // {
+               // TempData["Msg"] = "Approval Filed:" + e1.Message;
+               // return RedirectToAction("Index");
+           // }
+        }
+
     }
 }

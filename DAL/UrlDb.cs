@@ -49,7 +49,8 @@ namespace DAL
 
         public void Save()
         {
-            db.SaveChanges();
+           db.SaveChanges();
+            
         }
         //tbl_Url GetByID(int Id);
         //void Insert(tbl_Url url);

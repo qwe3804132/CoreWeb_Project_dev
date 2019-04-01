@@ -11,7 +11,7 @@ namespace BOL
 {
     using System;
     using System.Collections.Generic;
-   
+    
     public partial class tbl_Url
     {
         public int UrlId { get; set; }
@@ -22,8 +22,8 @@ namespace BOL
         public Nullable<int> UserId { get; set; }
         public string IsApproved { get; set; }
         public string Payment { get; set; }
-
-
+        public Nullable<int> ClickCount { get; set; }
+    
         public virtual tbl_Category tbl_Category { get; set; }
         public virtual tbl_User tbl_User { get; set; }
     }

@@ -10,12 +10,18 @@
 @*UI---Bll--DAL---Bol--database*@
 
 @*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+
+@if (TempData["Msg"] != null)
+{
+    <h4>@TempData["Msg"].ToString()</h4>
+}
+
 <table class="table">
     <tr>
         <th>
-            @Html.ActionLink("UrlTitle", "Index", new { SortOrder = (ViewBag.SortOrder==null?"ASC":(ViewBag.SortOrder=="ASC"?"DESC":"ASC")), SortBy = "Title" })
+            @Html.ActionLink("UrlTitle", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "ASC" : (ViewBag.SortOrder == "ASC" ? "DESC" : "ASC")), SortBy = "Title" })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Url)
@@ -24,48 +30,55 @@
             @Html.DisplayNameFor(model => model.UrlDesc)
         </th>
         @*<th>
-            @Html.DisplayNameFor(model => model.IsApproved)
-        </th>*@
+                @Html.DisplayNameFor(model => model.IsApproved)
+            </th>*@
         <th>
             @Html.DisplayNameFor(model => model.tbl_Category.CategoryName)
         </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.tbl_User.UserEmail)
-        </th>*@
+        <th>
+                @Html.DisplayNameFor(model => model.ClickCount)
+            </th>
         @*<th></th>*@
-    </tr> 
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.UrlTitle)
-        </td>
-        <td>
-            <a target="_blank" href="@item.Url">@item.Url</a>
-            
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UrlDesc)
-        </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.IsApproved)
-        </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.tbl_Category.CategoryName)
-        </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.tbl_User.UserEmail)
-        </td>*@
-        @*<td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UrlId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UrlId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UrlId })
-        </td>*@
     </tr>
-}
+
+    @foreach (var item in Model.OrderBy(x=>x.ClickCount).Reverse())
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrlTitle)
+            </td>
+            <td>
+                @*<a target="_blank" href="@item.Url">@item.Url</a>*@
+                @Html.ActionLink(
+        item.Url,
+        "updateClickCount",
+        "BrowseURL",
+        new { urlId = item.UrlId },
+       new { target = "_blank" }
+                                     )
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrlDesc)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.IsApproved)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.tbl_Category.CategoryName)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.ClickCount)
+                </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.UrlId }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.UrlId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.UrlId })
+                </td>*@
+        </tr>
+    }
 
 </table>
-@{ 
+@{
     double TotalPage = @ViewBag.TotalPages;
 }
 @for (int i = 1; i < TotalPage; i++)
