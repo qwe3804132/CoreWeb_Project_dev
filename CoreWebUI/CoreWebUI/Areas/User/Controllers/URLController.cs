@@ -28,6 +28,7 @@ namespace CoreWebUI.Areas.User.Controllers
                 myUrl.UserId = objBs.userBs.GetAll().Where(x => x.UserEmail == User.Identity.Name).FirstOrDefault().UserId;
                 if (ModelState.IsValid)
                 {
+                    myUrl.ClickCount = 0;
                     objBs.urlBs.Insert(myUrl);
                     TempData["Msg"] = "Created Successfully";
                     return RedirectToAction("Index");
