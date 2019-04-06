@@ -65,9 +65,11 @@
         <td>
             @if (item.IsApproved == "A")
             {
-                @Html.ActionLink("Pay For Upgrade", "Pay", new { id = item.UrlId }, new { onclick = "return ConfirmPay()" })
+                <span style="font-size: 4em; color: dodgerblue;">
+                    <i class="fab fa-paypal"></i>
+                </span> @Html.ActionLink("Pay For Upgrade", "Pay", new { id = item.UrlId }, new { onclick = "return ConfirmPay()" })
 
-               
+
 
 
 

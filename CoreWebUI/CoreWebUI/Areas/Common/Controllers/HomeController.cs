@@ -13,7 +13,9 @@ namespace CoreWebUI.Areas.Common.Controllers
         // GET: Common/Home
         public ActionResult Index()
         {
-            return View();
+
+            var urls = objBs.urlBs.GetAll().Where(x => x.Payment == "Gold").ToList();
+            return View(urls);
         }
     }
 }

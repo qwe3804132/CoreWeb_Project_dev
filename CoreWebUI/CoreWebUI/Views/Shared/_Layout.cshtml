@@ -11,12 +11,13 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
-
-
-
 </head>
 <body>
+
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -29,7 +30,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li> @Html.ActionLink("Home", "Index", new { Controller = "Home", Area = "Common" })</li>
+                    <li>
+
+                        @Html.ActionLink("Home", "Index", new { Controller = "Home", Area = "Common" })
+                    </li>
                     <li> @Html.ActionLink("BrowseURLs", "Index", new { Controller = "BrowseURL", Area = "Common" })</li>
 
                     @if (User.Identity.IsAuthenticated)
@@ -78,5 +82,7 @@
     <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href=”//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css” rel=”stylesheet”>
+
 </body>
 </html>

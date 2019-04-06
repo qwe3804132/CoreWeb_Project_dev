@@ -1,7 +1,67 @@
-﻿
+﻿@model IEnumerable<BOL.tbl_Url>
+
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Welcome to WebCore!!! This page is all the Gold Urls! The posting price is 10 Dollars!</h2>
+
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.UrlTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Url)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrlDesc)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.tbl_Category.CategoryName)
+        </th>
+        <th>
+            Url Level
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+
+        <td>
+            <span style="font-size: 4em; color: gold;">
+    <i class="fas fa-star"></i>
+</span> @Html.DisplayFor(modelItem => item.UrlTitle)
+        </td>
+        <td>
+            <span style="font-size: 4em; color: orangered;">
+                <i class="fas fa-book-open"></i>
+            </span> @Html.DisplayFor(modelItem => item.Url)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrlDesc)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_Category.CategoryName)
+        </td>
+        <td>
+            Gold
+        </td>
+
+    </tr>
+    }
+
+
+
+
+
+
+
+
+</table>
 

@@ -18,66 +18,111 @@
     <h4>@TempData["Msg"].ToString()</h4>
 }
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.ActionLink("UrlTitle", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "ASC" : (ViewBag.SortOrder == "ASC" ? "DESC" : "ASC")), SortBy = "Title" })
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Url)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UrlDesc)
-        </th>
-        @*<th>
+    <table class="table">
+
+        <tr>
+            <th>
+                @Html.ActionLink("UrlTitle", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "ASC" : (ViewBag.SortOrder == "ASC" ? "DESC" : "ASC")), SortBy = "Title" })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Url)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UrlDesc)
+            </th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.IsApproved)
             </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.tbl_Category.CategoryName)
-        </th>
-        <th>
+            <th>
+                @Html.DisplayNameFor(model => model.tbl_Category.CategoryName)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.ClickCount)
             </th>
-        @*<th></th>*@
-    </tr>
+            @*<th></th>*@
+        </tr>
 
-    @foreach (var item in Model.OrderBy(x=>x.ClickCount).Reverse())
-    {
+
+        @foreach (var item in Model)
+        {
+            if (item.Payment == "Gold")
+            {
         <tr>
+
             <td>
-                @Html.DisplayFor(modelItem => item.UrlTitle)
+                <span style="font-size: 4em; color: gold;">
+                    <i class="fas fa-medal"></i>
+                </span>  @Html.DisplayFor(modelItem => item.UrlTitle)
             </td>
             <td>
-                @*<a target="_blank" href="@item.Url">@item.Url</a>*@
-                @Html.ActionLink(
-        item.Url,
-        "updateClickCount",
-        "BrowseURL",
-        new { urlId = item.UrlId },
-       new { target = "_blank" }
-                                     )
+                @Html.DisplayFor(modelItem => item.Url)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.UrlDesc)
             </td>
-            @*<td>
-                    @Html.DisplayFor(modelItem => item.IsApproved)
-                </td>*@
+
             <td>
                 @Html.DisplayFor(modelItem => item.tbl_Category.CategoryName)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.ClickCount)
+            </td>
+
+        </tr>
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        @foreach (var item in Model.OrderBy(x => x.ClickCount).Reverse())
+        {
+            if (item.Payment != "Gold")
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UrlTitle)
+                </td>
+                <td>
+                    @*<a target="_blank" href="@item.Url">@item.Url</a>*@
+                    @Html.ActionLink(
+             item.Url,
+             "updateClickCount",
+             "BrowseURL",
+             new { urlId = item.UrlId },
+            new { target = "_blank" }
+                                          )
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UrlDesc)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.IsApproved)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.tbl_Category.CategoryName)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.ClickCount)
                 </td>
-            @*<td>
+                @*<td>
                     @Html.ActionLink("Edit", "Edit", new { id=item.UrlId }) |
                     @Html.ActionLink("Details", "Details", new { id=item.UrlId }) |
                     @Html.ActionLink("Delete", "Delete", new { id=item.UrlId })
                 </td>*@
-        </tr>
-    }
+            </tr>
+            }
+        }
 
-</table>
+    </table>
 @{
     double TotalPage = @ViewBag.TotalPages;
 }
